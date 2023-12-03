@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>test task for job</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script type="module" defer src="js/script.js"></script>
+</head>
+
+<body>
+	<section class="pay">
+		<div class="pay__container container">
+			<div class="pay__form">
+				<div class="pay__inputs">
+					<div class="text-input">
+						<input type="text" name="full-name" pattern="[а-яА-Я\s]+" placeholder required>
+						<label>ФИО</label>
+					</div>
+					<div class="text-input">
+						<input type="email" name="email" autocomplete placeholder required>
+						<label>Email</label>
+					</div>
+					<div class="text-input">
+						<input type="tel" name="tel" autocomplete placeholder required>
+						<label>Телефон</label>
+					</div>
+					<div class="input-wrapper">
+						<div class="input-wrapper__label">Услуга</div>
+						<select class="select-box" name="service">
+							<option value="" disabled selected hidden>Выберите услугу</option>
+						</select>
+					</div>
+					<div class="input-wrapper collapsed">
+						<div>
+							<div class="input-wrapper__label">Тариф</div>
+							<select class="select-box" name="rate">
+								<option value="" disabled selected hidden>Выберите тариф</option>
+							</select>
+						</div>
+					</div>
+					<div class="input-wrapper collapsed">
+						<div>
+							<div class="input-wrapper__label">Срок аренды</div>
+							<select class="select-box" name="rent">
+								<option value="" disabled selected hidden>Выберите срок аренды</option>
+								<option value="1">4 часа</option>
+								<option value="2">1 день</option>
+								<option value="3">1 месяц</option>
+								<option value="4">3 месяца</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="pay__footer">
+					<div class="pay__count">Сумма: <span>0</span>₽</div>
+					<div class="pay__success-label dn">Успешно</div>
+					<button class="pay__submit-btn btn disabled" >Оплатить</button>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+@layer reset {
+	@import "reset";
+}
+@import "variables";
+@import "fonts";
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+	transition: background-color 0s 600000s,
+		color 0s 600000s;
+}
+
+//Адаптивное свойство
+@mixin adaptiv-value($indentType, $pcSize, $mobSize, $type: 0) {
+	$addSize: $pcSize - $mobSize;
+	@if $type == 0 {
+		@media (max-width: #{$maxWidhtContainer + px}) {
+			#{$indentType}: calc(
+				#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth+px}) / #{$maxWidhtContainer - $minWidth})
+			);
+		}
+	} @else if $type == 1 {
+		@media (min-width: #{$maxWidhtContainer + px}) {
+			#{$indentType}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth+px}) / #{$maxWidth - $minWidth}));
+		}
+	} @else if $type == 2 {
+		#{$indentType}: calc(#{$mobSize + px} + #{$addSize} * ((100vw - #{$minWidth+px}) / #{$maxWidth - $minWidth}));
+	}
+}
+* {
+	font-family: "Montserrat";
+}
+
+.container {
+	max-width: $maxWidhtContainer + 15 * 2;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+@layer components {
+	.btn {
+		background-color: #14b9ff;
+		border-radius: 999px;
+		border: 0;
+		padding: 8px 25px;
+		display: block;
+		color: black;
+		box-shadow:
+			inset 1px 1px 4px rgba(white, 0.3),
+			inset -1px -1px 4px rgba(black, 0.3);
+
+		&:active {
+			background-color: hsl(198, 100%, 50%);
+			box-shadow:
+				inset 1px 1px 4px rgba(black, 0.3),
+				inset -1px -1px 4px rgba(white, 0.3);
+		}
+
+		&.disabled {
+			color: #999;
+			background-color: #c0c0c0;
+			cursor: not-allowed;
+		}
+	}
+}
+
+.collapsed {
+	display: grid;
+	grid-template-rows: 0fr;
+	transition: 300ms grid-template-rows ease-in-out;
+	> div {
+		overflow: hidden;
+	}
+	&.active {
+		grid-template-rows: 1fr;
+	}
+}
+
+//===========================================================
+
+@import "pay";
+
+//===========================================================
+
+.dn {
+	display: none;
+}
