@@ -95,7 +95,6 @@ submitBtn.addEventListener('click', function () {
 		body: JSON.stringify(order)
 	}).then(res => res.json())
 		.then(data => {
-			console.log(data);
 			if (!data.error) {
 				const successLabel = document.querySelector('.pay__success-label')
 				submitBtn.classList.add('dn')
@@ -144,7 +143,6 @@ for (const select of selects) {
 	select.setCustomValidity('Выберете значение')
 	select.addEventListener('change', function () {
 		formIsValid()
-		console.log(select.value);
 		if (select.value !== '') {
 			select.setCustomValidity('')
 		} else {
@@ -156,9 +154,7 @@ for (const select of selects) {
 function formIsValid() {
 	window.requestAnimationFrame(() => {
 		for (const input of activeInputs) {
-			console.log(input);
 			if (!input.checkValidity()) {
-				console.log('empty', input);
 				submitBtn.classList.add('disabled')
 				return false
 			}
